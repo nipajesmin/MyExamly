@@ -1,12 +1,576 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyExamly</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <link rel="icon" type="image/png" href="assets/logo1.png"> -->
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <!-- daisyUI CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .font-manrope {
+            font-family: "Manrope", sans-serif;
+
+        }
+
+        .marquee {
+            display: inline-block;
+            white-space: nowrap;
+            will-change: transform;
+            animation: scroll-left 25s linear infinite;
+        }
+
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Optional: pause scrolling on hover */
+        .marquee:hover {
+            animation-play-state: paused;
+        }
+    </style>
 </head>
-<body>
-   
+
+<body class="font-manrope">
+    <header class="md:w-[80%] mx-auto">
+        <!-- nav started -->
+        <nav class="text-neutral-600 p-4">
+            <div class="container mx-auto flex justify-between items-center">
+
+                <!-- Title with Image Logo -->
+                <div class="flex items-center text-3xl font-bold text-black">
+                    <img src="assets/logo1.png" alt="My Examly Logo" class="w-32 h-28 object-contain" />
+                    <!-- <h1 class="ml-2">My Examly</h1> -->
+                </div>
+
+
+                <!-- Menu (Hidden on small devices) -->
+                <div class="hidden md:!block md:flex lg:flex space-x-8 items-center">
+                    <a href="#home" class="hover:text-cyan-600 text-slate-950 font-medium">Home</a>
+                    <a href="#services" class="hover:text-cyan-600">Services</a>
+                    <a href="#feature" class="hover:text-cyan-600">Feature</a>
+                    <a href="#blog" class="hover:text-cyan-600">Blog</a>
+                    <a href="#about" class="hover:text-cyan-600">About Us</a>
+                </div>
+
+
+
+
+
+                <!-- Button -->
+                <div class="hidden md:!block md:flex lg:flex items-center">
+                    <a class="btn rounded-2xl bg-cyan-600 text-lg text-neutral-900 flex items-center px-4 py-2">
+                        Login
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6 ml-2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6A2.25 2.25 0 005.25 5.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15" />
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M18.75 12h-12m0 0l3.75-3.75M6.75 12l3.75 3.75" />
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Hamburger Menu (Visible on small devices) -->
+                <div class="lg:hidden flex items-center">
+                    <button id="hamburger" class="focus:outline-none p-2 bg-white rounded-3xl border border-gray-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            class="w-6 h-6 bg-white rounded-xl border-inherit border-gray-200">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+
+
+        <!-- header image  -->
+        <div class="max-w-screen-lg mx-auto">
+            <div>
+                <img class="mx-auto" src="assets/banner.jpg" alt="banner">
+            </div>
+            <div class="pb-20">
+                <h3 class="lg:text-5xl font-extrabold text-neutral-900 text-center sm:text-lg">
+                    Simplify School Exam Management with MyExamly
+                </h3>
+                <p class="text-neutral-600 pb-3 pt-3 lg:text-2xl font-medium text-center sm:text-sm">
+                    MyExamly helps schools organize, conduct, and analyze exams efficiently — from importing student
+                    data to exporting detailed results with just a few clicks.
+                </p>
+                <!-- Button -->
+                <div class="navbar-end flex justify-center mx-auto m-6">
+                    <a class="btn rounded-2xl bg-cyan-600 text-lg text-neutral-900 flex items-center space-x-2">
+                        View Details
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="white" class="w-6 h-6 bg-cyan-600 p-1 rounded-xl">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M17.25 6.75L21 12m0 0l-3.75 5.25M21 12H3" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </header>
+    <main class="pr-5 pl-5">
+        <!-- about us started -->
+        <section class="bg-[#f4f4f4] pt-3 pb-3">
+            <div class="md:w-[80%] mx-auto">
+                <div class="navbar-end lg:ml-7 lg:mt-2 lg:mb-2">
+                    <a
+                        class="btn rounded-2xl bg-white text-lg text-neutral-900 inline-flex items-center px-4 py-2 w-40">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-5 h-5 mr-2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M9 20H4v-2a3 3 0 015.356-1.857M16 7a4 4 0 11-8 0 4 4 0 018 0zm6 5a4 4 0 11-8 0 4 4 0 018 0zM2 12a4 4 0 118 0 4 4 0 01-8 0z" />
+                        </svg>
+                        About Us
+                    </a>
+                </div>
+                <div class="ml-4 mr-4 lg:grid grid-cols-2">
+                    <div>
+                        <div class="flex flex-col items-center lg:items-start lg:text-left text-center">
+
+
+                            <h1 class="lg:text-4xl font-extrabold text-neutral-900 sm:text-lg mt-4 lg:mt-0">
+                                Empowering Schools Through Smarter Exam Management
+                            </h1>
+                            <p
+                                class="text-neutral-600 lg:pb-3 pt-3 lg:text-lg font-medium sm:text-sm max-w-lg lg:max-w-none">
+                                At MyExamly, we help educational institutions simplify their exam processes — from
+                                creating exam schedules and importing student data to generating insightful result
+                                reports with just a few clicks.
+                            </p>
+                        </div>
+
+                        <div class="bg-white mb-3 mr-4 pt-2 pl-2 rounded-xl grid grid-cols-2 place-items-center">
+                            <div>
+                                <!-- Chart Bar Icon (Analytics) -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-lime-500">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M3 3v18h18M9 17V9m4 8v-4m4 4V5" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-sm text-stone-800 font-extrabold">Smart Analytics</h4>
+                                <p class="pr-3 font-medium text-base text-neutral-500">
+                                    Get real-time insights into student performance and exam statistics through powerful
+                                    data visualization.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white mb-3 mr-4 pt-2 pl-2 rounded-xl grid grid-cols-2 place-items-center">
+                            <div>
+                                <!-- Document Arrow Icon (Import/Export) -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-lime-500">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M9 12h6m0 0l-3-3m3 3l-3 3M19.5 12a7.5 7.5 0 11-15 0 7.5 7.5 0 0115 0z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-sm text-stone-800 font-extrabold">Easy Import & Export</h4>
+                                <p class="pr-3 font-medium text-base text-neutral-500">
+                                    Seamlessly upload student lists and download result sheets in various formats to
+                                    simplify academic workflows.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="assets/exam-dashboard.jpg" alt="Dashboard Image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest Updates Section -->
+        <section class="flex items-center gap-2 bg-teal-800 p-2 text-white text-sm md:text-base overflow-hidden">
+            <!-- <div class="bg-[#0EA5E9] px-4 py-2 font-semibold whitespace-nowrap">
+                Latest Updates
+            </div> -->
+
+            <!-- Scrolling Content -->
+            <div class="marquee flex gap-16">
+                <span class="flex items-center gap-2">
+                    <i class="fas fa-bullhorn text-[#0EA5E9]"></i>
+                    Exam Results for Semester 1 Released – Check your dashboard now!
+                </span>
+                <span class="flex items-center gap-2">
+                    <i class="fas fa-bullhorn text-[#0EA5E9]"></i>
+                    New Mock Tests Available for SSC & HSC Students – Practice now.
+                </span>
+                <span class="flex items-center gap-2">
+                    <i class="fas fa-bullhorn text-[#0EA5E9]"></i>
+                    Admission Form Deadline Extended – Submit by June 15th.
+                </span>
+            </div>
+        </section>
+
+        <section class="bg-[#f4f4f4] p-4">
+            <div class="md:w-[80%] mx-auto">
+                <div class="flex flex-col items-center justify-center text-center">
+                    <div class="navbar-end lg:ml-7 lg:mt-2 lg:mb-2 w-56">
+                        <a class="btn rounded-2xl bg-white text-lg text-neutral-900">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                            </svg>
+                            Key Features
+                        </a>
+                    </div>
+                    <h1 class="lg:text-4xl font-extrabold text-neutral-900 sm:text-lg">
+                        Manage Exams with Ease
+                    </h1>
+                    <p class="text-neutral-600 lg:pb-3 pt-3 lg:text-lg font-medium sm:text-sm">
+                        Simplify your school’s exam workflow with MyExamly’s powerful tools for automation and analysis.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 mt-8">
+
+                    <!-- Import Student Data -->
+                    <div class="bg-blue-100 p-4 rounded-xl">
+                        <div class="flex justify-center mb-3">
+                            <svg class="w-10 h-10 text-blue-700" fill="none" stroke="currentColor" stroke-width="1.5"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M4 4v16h16V4H4zm8 4v4m0 0l-2-2m2 2l2-2" />
+                            </svg>
+                        </div>
+                        <h4 class="text-md text-stone-800 font-extrabold text-center">Import Student Data</h4>
+                        <p class="font-medium text-base text-neutral-500 text-center">
+                            Upload students in bulk using Excel or CSV — save time and avoid manual entry errors.
+                        </p>
+                    </div>
+
+                    <!-- Smart Analytics -->
+                    <div class="bg-yellow-100 p-4 rounded-xl">
+                        <div class="flex justify-center mb-3">
+                            <svg class="w-10 h-10 text-yellow-600" fill="none" stroke="currentColor" stroke-width="1.5"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 3v18h18M7 14l4-4 5 5" />
+                            </svg>
+                        </div>
+                        <h4 class="text-md text-stone-800 font-extrabold text-center">Smart Analytics</h4>
+                        <p class="font-medium text-base text-neutral-500 text-center">
+                            Visual dashboards and performance insights to help teachers make data-driven decisions.
+                        </p>
+                    </div>
+
+                    <!-- Exam Scheduling -->
+                    <div class="bg-green-100 p-4 rounded-xl">
+                        <div class="flex justify-center mb-3">
+                            <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" stroke-width="1.5"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <h4 class="text-md text-stone-800 font-extrabold text-center">Exam Scheduling</h4>
+                        <p class="font-medium text-base text-neutral-500 text-center">
+                            Create, organize, and assign exam dates with ease. No more scheduling conflicts.
+                        </p>
+                    </div>
+
+                    <!-- Export Results -->
+                    <div class="bg-purple-100 p-4 rounded-xl">
+                        <div class="flex justify-center mb-3">
+                            <svg class="w-10 h-10 text-purple-700" fill="none" stroke="currentColor" stroke-width="1.5"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M12 12v6m0 0l-3-3m3 3l3-3M12 4v8" />
+                            </svg>
+                        </div>
+                        <h4 class="text-md text-stone-800 font-extrabold text-center">Export Results</h4>
+                        <p class="font-medium text-base text-neutral-500 text-center">
+                            Download clean result reports for printing or online sharing — in PDF, CSV, or Excel.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section class="bg-gradient-to-br from-indigo-50 to-purple-100 py-12 px-4">
+            <div class="max-w-6xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-neutral-800 mb-4">Why Choose <span
+                        class="text-purple-600">MyExamly?</span></h2>
+                <p class="text-neutral-600 mb-10 text-base md:text-lg max-w-2xl mx-auto">
+                    MyExamly is designed to simplify the entire examination lifecycle — from student data handling to
+                    result generation — saving time and ensuring accuracy every step of the way.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    <!-- Feature 1 -->
+                    <div class="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition duration-300 text-left">
+                        <div class="mb-4">
+                            <svg class="w-10 h-10 text-indigo-500" fill="none" stroke="currentColor" stroke-width="1.5"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 12h6m-3 -3v6m8 -3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-semibold text-neutral-800">User-Friendly Interface</h4>
+                        <p class="text-sm text-neutral-600 mt-2">
+                            A clean, intuitive dashboard that makes exam management accessible to educators of all tech
+                            levels.
+                        </p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition duration-300 text-left">
+                        <div class="mb-4">
+                            <svg class="w-10 h-10 text-green-500" fill="none" stroke="currentColor" stroke-width="1.5"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3 10h18M9 16h6M9 20h6M4 6h16M3 4h18" />
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-semibold text-neutral-800">Bulk Import & Export</h4>
+                        <p class="text-sm text-neutral-600 mt-2">
+                            Easily handle large volumes of student records and exam results with just a few clicks.
+                        </p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition duration-300 text-left">
+                        <div class="mb-4">
+                            <svg class="w-10 h-10 text-amber-500" fill="none" stroke="currentColor" stroke-width="1.5"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M11 3h2m-1 0v18m7-7H5" />
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-semibold text-neutral-800">Real-Time Analytics</h4>
+                        <p class="text-sm text-neutral-600 mt-2">
+                            Get instant insights on exam performance, pass rates, and trends with built-in visual
+                            reports.
+                        </p>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition duration-300 text-left">
+                        <div class="mb-4">
+                            <svg class="w-10 h-10 text-rose-500" fill="none" stroke="currentColor" stroke-width="1.5"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 4.354a4 4 0 10-4 6.292V20a2 2 0 104 0v-9.354a4 4 0 104-6.292z" />
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-semibold text-neutral-800">Cloud-Based Access</h4>
+                        <p class="text-sm text-neutral-600 mt-2">
+                            Access the system anytime, from anywhere. Perfect for remote teams and school
+                            administrators.
+                        </p>
+                    </div>
+
+                    <!-- Feature 5 -->
+                    <div class="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition duration-300 text-left">
+                        <div class="mb-4">
+                            <svg class="w-10 h-10 text-cyan-600" fill="none" stroke="currentColor" stroke-width="1.5"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M16.5 10.5v-1.25a4.5 4.5 0 00-9 0v1.25M12 15v.01M9 17.25h6M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-semibold text-neutral-800">Secure & Reliable</h4>
+                        <p class="text-sm text-neutral-600 mt-2">
+                            Keep student data safe with robust authentication and encryption built right in.
+                        </p>
+                    </div>
+
+                    <!-- Feature 6 -->
+                    <div class="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition duration-300 text-left">
+                        <div class="mb-4">
+                            <svg class="w-10 h-10 text-teal-600" fill="none" stroke="currentColor" stroke-width="1.5"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M6.75 12L12 17.25 17.25 12M12 6.75v10.5" />
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-semibold text-neutral-800">Fast Result Publishing</h4>
+                        <p class="text-sm text-neutral-600 mt-2">
+                            Publish exam results instantly and share them with students or parents via download or
+                            print.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Contact Section -->
+        <section class="bg-gray-100 py-16 px-4">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+                <!-- Left Column -->
+                <div class="space-y-6">
+                    <span class="text-teal-600 font-semibold uppercase tracking-wide">
+                        Stay Connected
+                    </span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">
+                        Let's Start a Conversation
+                    </h2>
+                    <p class="text-lg text-gray-600">
+                        Have questions about exam management or want to see how MyExamly can simplify your institution’s
+                        workflows? We're here to help.
+                    </p>
+
+                    <!-- Social Media -->
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-semibold text-gray-800">Follow Us On:</h3>
+                        <div class="flex gap-6 text-2xl">
+                            <a href="#" class="hover:opacity-80 transition" style="color: #3b5998;">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="#" class="hover:opacity-80 transition" style="color: #db4437;">
+                                <i class="fab fa-google"></i>
+                            </a>
+                            <a href="#" class="hover:opacity-80 transition" style="color: #e1306c;">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="hover:opacity-80 transition" style="color: #ff0000;">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="#" class="hover:opacity-80 transition" style="color: #bd081c;">
+                                <i class="fab fa-pinterest"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column - Contact Form -->
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <form class="space-y-6">
+                        <div>
+                            <label class="block text-gray-700 mb-2 font-medium">Full Name</label>
+                            <input type="text" placeholder="John Doe"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:outline-none">
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 mb-2 font-medium">Email Address</label>
+                            <input type="email" placeholder="john@example.com"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:outline-none">
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 mb-2 font-medium">Subject</label>
+                            <input type="text" placeholder="How can we help?"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:outline-none">
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 mb-2 font-medium">Message</label>
+                            <textarea rows="4" placeholder="Your message here..."
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:outline-none"></textarea>
+                        </div>
+
+                        <button type="submit"
+                            class="w-full bg-teal-600 hover:bg-teal-700 transition-colors text-white py-3 px-6 rounded-lg font-semibold">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- MyExamly Footer -->
+        <footer class="bg-black text-white py-10 ">
+            <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
+
+                <!-- About Section -->
+                <div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <i class="fas fa-graduation-cap text-2xl text-white"></i>
+                        <h2 class="text-2xl font-bold">MyExamly</h2>
+                    </div>
+                    <p class="text-gray-300 text-sm">
+                        MyExamly simplifies school exam management — schedule exams, manage student data, and analyze
+                        results efficiently.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-3"><i class="fas fa-link mr-2"></i>Quick Links</h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li><a href="/" class="hover:text-white transition"><i class="fas fa-house mr-2"></i>Home</a>
+                        </li>
+                        <li><a href="/features" class="hover:text-white transition"><i
+                                    class="fas fa-star mr-2"></i>Features</a></li>
+                        <li><a href="/pricing" class="hover:text-white transition"><i
+                                    class="fas fa-tags mr-2"></i>Pricing</a></li>
+                        <li><a href="/contact" class="hover:text-white transition"><i
+                                    class="fas fa-envelope mr-2"></i>Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact & Social -->
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-3"><i class="fas fa-paper-plane mr-2"></i>Connect
+                        With Us</h3>
+                    <p class="text-sm text-gray-300 mb-3"><i class="fas fa-envelope mr-2"></i>
+                        <a href="mailto:support@myexamly.com" class="underline">support@myexamly.com</a>
+                    </p>
+                    <div class="flex space-x-4 mt-2">
+                        <a href="#" class="p-2 bg-white text-[#042020] rounded-full hover:bg-gray-200 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="p-2 bg-white text-[#042020] rounded-full hover:bg-gray-200 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="p-2 bg-white text-[#042020] rounded-full hover:bg-gray-200 transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="p-2 bg-white text-[#042020] rounded-full hover:bg-gray-200 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="mt-10 text-center text-sm text-gray-400 border-t border-gray-600 pt-4">
+                © 2025 <span class="font-semibold text-white">MyExamly</span> · Empowering Exam Management · All rights
+                reserved.
+            </div>
+        </footer>
+
+
+
+
+
+
+
+    </main>
+
 </body>
+
 </html>
