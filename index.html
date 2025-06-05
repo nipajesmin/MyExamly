@@ -14,9 +14,7 @@
 
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <!-- daisyUI CDN -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
@@ -52,50 +50,85 @@
 </head>
 
 <body class="font-manrope">
-    <header class="md:w-[80%] mx-auto">
+    <script>
+        window.onload = function () {
+            let currentIndex = 0;
+            const slider = document.getElementById('slider');
+            const totalSlides = slider.children.length;
+
+            function showSlide(index) {
+                const newTransform = `translateX(-${index * 100}%)`;
+                slider.style.transform = newTransform;
+            }
+
+            window.nextSlide = function () {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                showSlide(currentIndex);
+            }
+
+            window.prevSlide = function () {
+                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                showSlide(currentIndex);
+            }
+
+            setInterval(nextSlide, 5000);
+        };
+    </script>
+
+
+
+
+    <header class="md:w-[100%] mx-auto bg-[#f4f4f4]">
         <!-- nav started -->
-        <nav class="text-neutral-600">
-            <div class="container mx-auto flex justify-between items-center">
-
-                <!-- Title with Image Logo -->
-                <div class="flex items-center text-3xl font-bold text-black">
-                    <img src="assets/logo1.png" alt="My Examly Logo" class="w-32 h-28 object-contain" />
-                    <!-- <h1 class="ml-2">My Examly</h1> -->
+        <nav class="text-neutral-900 px-6">
+            <div class="container mx-auto flex justify-between items-center py-4">
+                <!-- Logo / Title -->
+                <div class="flex items-center text-3xl font-bold" style="color: rgb(63, 146, 144);">
+                    <!-- If you have an <img> logo, replace the <h1> below with: 
+           <img src="assets/logo1.png" alt="My Examly Logo" class="w-32 h-auto object-contain" />
+      -->
+                    <h1>MyExamly</h1>
                 </div>
 
-
-                <!-- Menu (Hidden on small devices) -->
-                <div class="hidden md:!block md:flex lg:flex space-x-8 items-center">
-                    <a href="#home" class="hover:text-cyan-600 text-slate-950 font-medium">Home</a>
-                    <a href="#services" class="hover:text-cyan-600">Services</a>
-                    <a href="#feature" class="hover:text-cyan-600">Feature</a>
-                    <a href="#blog" class="hover:text-cyan-600">Blog</a>
-                    <a href="#about" class="hover:text-cyan-600">About Us</a>
-                </div>
-
-
-
-
-
-                <!-- Button -->
-                <div class="hidden md:!block md:flex lg:flex items-center">
-                    <a class="btn rounded-2xl bg-cyan-600 text-lg text-neutral-900 flex items-center px-4 py-2">
-                        Login
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6 ml-2">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6A2.25 2.25 0 005.25 5.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15" />
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M18.75 12h-12m0 0l3.75-3.75M6.75 12l3.75 3.75" />
-                        </svg>
+                <!-- Menu (Hidden on small screens) -->
+                <div class="hidden md:flex lg:flex space-x-8 items-center">
+                    <a href="#home" class="font-medium text-lg" style="color: rgb(63, 146, 144);">
+                        Home
+                    </a>
+                    <a href="#services" class="font-medium text-lg" style="color: rgb(63, 146, 144);">
+                        Services
+                    </a>
+                    <a href="#feature" class="font-medium text-lg" style="color: rgb(63, 146, 144);">
+                        Feature
+                    </a>
+                    <a href="#blog" class="font-medium text-lg" style="color: rgb(63, 146, 144);">
+                        Blog
+                    </a>
+                    <a href="#about" class="font-medium text-lg" style="color: rgb(63, 146, 144);">
+                        About Us
                     </a>
                 </div>
 
-                <!-- Hamburger Menu (Visible on small devices) -->
+                <!-- Login Button -->
+                <a href="#login"
+                    class="flex items-center rounded-2xl px-4 py-2 text-lg text-neutral-900 shadow-sm transition-shadow duration-200"
+                    style="background-color: rgb(63, 146, 144); border: 2px solid rgb(63, 146, 144);"
+                    onmouseover="this.classList.add('shadow-lg')" onmouseout="this.classList.remove('shadow-lg')">
+                    Login
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6 ml-2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6A2.25 2.25 0 005.25 5.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15" />
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M18.75 12h-12m0 0l3.75-3.75M6.75 12l3.75 3.75" />
+                    </svg>
+                </a>
+
+                <!-- Hamburger (Visible on small screens) -->
                 <div class="lg:hidden flex items-center">
                     <button id="hamburger" class="focus:outline-none p-2 bg-white rounded-3xl border border-gray-200">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                            class="w-6 h-6 bg-white rounded-xl border-inherit border-gray-200">
+                            class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
@@ -108,9 +141,25 @@
 
         <!-- header image  -->
         <div class="max-w-screen-lg mx-auto">
-            <div>
-                <img class="mx-auto" src="assets/banner.jpg" alt="banner">
+            <!-- Image Slider -->
+            <div class="relative overflow-hidden">
+                <div id="slider" class="flex transition-transform duration-500 ease-in-out">
+                    <img src="assets/banner1.jpg" class="w-full flex-shrink-0" alt="Slide 1">
+                    <img src="assets/banner2.jpg" class="w-full flex-shrink-0" alt="Slide 2">
+                    <img src="assets/banner3.jpg" class="w-full flex-shrink-0" alt="Slide 3">
+                </div>
+                <button onclick="prevSlide()"
+                    class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 bg-opacity-50 text-white px-2 py-1">
+                    &#10094;
+                </button>
+                <button onclick="nextSlide()"
+                    class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-700 bg-opacity-50 text-white px-2 py-1">
+                    &#10095;
+                </button>
             </div>
+
+
+            <!-- Text Content -->
             <div class="pb-20">
                 <h3 class="lg:text-5xl font-extrabold text-neutral-900 text-center sm:text-lg pt-4">
                     Simplify School Exam Management with MyExamly
@@ -119,12 +168,11 @@
                     MyExamly helps schools organize, conduct, and analyze exams efficiently — from importing student
                     data to exporting detailed results with just a few clicks.
                 </p>
-                
             </div>
-
         </div>
+
     </header>
-    <main class="pr-5 pl-5">
+    <main>
         <!-- Latest Updates Section -->
         <section class="flex items-center gap-2 bg-teal-800 p-2 text-white text-sm md:text-base overflow-hidden">
             <!-- <div class="bg-[#0EA5E9] px-4 py-2 font-semibold whitespace-nowrap">
@@ -179,7 +227,7 @@
 
                         <div class="bg-white mb-3 mr-4 pt-2 pl-2 rounded-xl grid grid-cols-2 place-items-center">
                             <div>
-                                
+
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-lime-500">
                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -220,7 +268,7 @@
             </div>
         </section>
 
-        
+
 
         <section class="bg-[#f4f4f4] p-4">
             <div class="md:w-[80%] mx-auto">
